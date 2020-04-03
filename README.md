@@ -18,6 +18,6 @@ This program does `not` detect repeted words
 - There are some words list in `word-list.txt` file but you can add it more words :)
 
 # Run
-Just put your words in `wordlist.txt` file and start HashCraker.py
+Just put your words in `wordlist.txt` file and start HashCracker.py
 - Screenshot
 ![Screenshot](images/img1.png)
