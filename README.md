@@ -15,7 +15,7 @@ simple hash cracker from `word list`
 
 # Note
 This program does `not` detect repeted words
-- There are some words list in `word-list.txt` file but you can add it more words :)
+- There are some words list in `word-list.txt` file but you can add more words :)
 
 # Run
 Just put your words in `wordlist.txt` file and start HashCracker.py
