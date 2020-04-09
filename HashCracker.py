@@ -1,10 +1,11 @@
 __coder__ = "KhodeXenon[Amin]"
 __email_ = "Khodexenon@gmail.com"
-from HashGenerator.HashGenerator import HashTool
+from packages.HashGenerator.HashGenerator import HashTool
 word_list = ""
-error_code = 1
+error_code = None
 while True:
-    all_options = ["1","2","3","4","5","6","7","8","9","10","md5","sha256","sha512","sha3_256","sha3_384","sha3_224","sha3_512","sha1","sha384","sha224"]
+    error_code = 1
+    all_options = ["1","2","3","4","5","6","7","8","9","10","11","md5","sha256","sha512","sha3_256","sha3_384","sha3_224","sha3_512","sha1","sha384","sha224","test all"]
     print("\n Options :")
     print("\t1)MD5")
     print("\t2)sha256")
@@ -16,6 +17,7 @@ while True:
     print("\t8)sha1")
     print("\t9)sha384")
     print("\t10)sha224")
+    print("\t11)test all")
     print("")
 
     hash_type = input("Hash type number :").lower()
@@ -36,50 +38,69 @@ while True:
         print("Number of words in (word-list.txt) file : " + str(len(word_list)))
         print("")
 
-    for word in word_list :
-        generated_hash = ""
-        hash_connection = HashTool(word)
+    if hash_type != "11" or hash_type != "test all" :
 
-        if hash_type == "md5" or hash_type == "1":
-            generated_hash = hash_connection.md5_encrypt()
+        for word in word_list :
+            generated_hash = ""
+            hash_connection = HashTool(word)
 
-        elif hash_type == "sha256" or hash_type == "2":
-            generated_hash = hash_connection.sha256_encrypt()
+            if hash_type == "md5" or hash_type == "1":
+                generated_hash = hash_connection.md5_encrypt()
 
-        elif hash_type == "sha512" or hash_type == "3":
-            generated_hash = hash_connection.sha512_encrypt()
+            elif hash_type == "sha256" or hash_type == "2":
+                generated_hash = hash_connection.sha256_encrypt()
 
-        elif hash_type == "sha3_256" or hash_type == "4":
-            generated_hash = hash_connection.sha3_256_encrypt()
+            elif hash_type == "sha512" or hash_type == "3":
+                generated_hash = hash_connection.sha512_encrypt()
 
-        elif hash_type == "sha3_384" or hash_type == "5":
-            generated_hash = hash_connection.sha3_384_encrypt()
+            elif hash_type == "sha3_256" or hash_type == "4":
+                generated_hash = hash_connection.sha3_256_encrypt()
 
-        elif hash_type == "sha3_224" or hash_type == "6":
-            generated_hash = hash_connection.sha3_224_encrypt()
+            elif hash_type == "sha3_384" or hash_type == "5":
+                generated_hash = hash_connection.sha3_384_encrypt()
 
-        elif hash_type == "sha3_512" or hash_type == "7":
-            generated_hash = hash_connection.sha3_512_encrypt()
+            elif hash_type == "sha3_224" or hash_type == "6":
+                generated_hash = hash_connection.sha3_224_encrypt()
 
-        elif hash_type == "sha1" or hash_type == "8":
-            generated_hash = hash_connection.sha1_encrypt()
+            elif hash_type == "sha3_512" or hash_type == "7":
+                generated_hash = hash_connection.sha3_512_encrypt()
 
-        elif hash_type == "sha384" or hash_type == "9":
-            generated_hash = hash_connection.sha384_encrypt()
+            elif hash_type == "sha1" or hash_type == "8":
+                generated_hash = hash_connection.sha1_encrypt()
 
-        elif hash_type == "sha224" or hash_type == "10":
-            generated_hash = hash_connection.sha224_encrypt()
+            elif hash_type == "sha384" or hash_type == "9":
+                generated_hash = hash_connection.sha384_encrypt()
 
-        if generated_hash == hash_text :
-            print("Hash cracked :)")
-            print("+--------------------------------------------------------------+")
-            print("Hash :" + hash_text)
-            print("")
-            print("string :" + word)
-            print("+--------------------------------------------------------------+")
-            error_code = 0
-            input("Press enter to continue ..")
-            break
+            elif hash_type == "sha224" or hash_type == "10":
+                generated_hash = hash_connection.sha224_encrypt()
+
+            if generated_hash == hash_text :
+                print("Hash cracked :)")
+                print("+--------------------------------------------------------------+")
+                print("Hash :" + hash_text)
+                print("")
+                print("string :" + word)
+                print("+--------------------------------------------------------------+")
+                error_code = 0
+                input("Press enter to continue ..")
+                break
+
+    if (hash_type == "11") or (hash_type == "test all") :
+        for word in word_list :
+            hash_connection = HashTool(word)
+            alg_list = [hash_connection.md5_encrypt(),hash_connection.sha256_encrypt(),hash_connection.sha512_encrypt(),hash_connection.sha3_256_encrypt(),hash_connection.sha3_384_encrypt(),hash_connection.sha3_224_encrypt(),hash_connection.sha3_512_encrypt(),hash_connection.sha1_encrypt(),hash_connection.sha3_384_encrypt(),hash_connection.sha224_encrypt()]
+            for all in alg_list :
+                generated_hash = all
+                if generated_hash == hash_text :
+                    print("Hash cracked :)")
+                    print("+--------------------------------------------------------------+")
+                    print("Hash :" + hash_text)
+                    print("")
+                    print("string :" + word)
+                    print("+--------------------------------------------------------------+")
+                    error_code = 0
+                    input("Press enter to continue ..")
+                    break
 
     if error_code == 1 :
         print("Nothing found in word-list that is equal to the hash :(")
