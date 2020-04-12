@@ -20,5 +20,5 @@ This program does `not` detect repeted words
 
 # Run
 Just put your words in `word-list.txt` file and start HashCracker.py
-- Screenshot
+
 ![Screenshot](images/img1.png)
