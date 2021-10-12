@@ -1,5 +1,9 @@
-__coder__ = "KhodeXenon[Amin]"
-__email_ = "Khodexenon@gmail.com"
+#!/usr/bin/env python3
+
+'''
+Hash Cracker Working with WordList
+'''
+
 from packages.HashGenerator.HashGenerator import HashTool
 word_list = ""
 error_code = None

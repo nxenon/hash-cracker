@@ -1,5 +1,5 @@
 # Hash Cracker
-simple hash cracker from `word list` 
+simple hash cracker
 
 # Supported hashes :
 - [x] MD5
@@ -19,6 +19,6 @@ This program does `not` detect repeted words
 - You can `test all` available hashes if you don't know type of hash => option number (`11`)
 
 # Run
-Just put your words in `word-list.txt` file and start HashCracker.py
+Just put your words in `word-list.txt` file and start hash-cracker.py
 
 ![Screenshot](images/img1.png)
